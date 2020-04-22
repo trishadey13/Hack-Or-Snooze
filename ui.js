@@ -104,8 +104,11 @@ $(async function() {
       const newStory = await storyList.addStory(currentUser, {title, author, url, username});
       //generate HTML for new story
       const newAllStoryHTML = generateStoryHTML(newStory, false);
+      const newMyStoryHTML = generateStoryHTML(newStory, true);
       // add to all-articles list
       $allStoriesList.prepend(newAllStoryHTML);
+      //add to my-articles list
+      $ownStories.prepend(newMyStoryHTML);
       // hide the form and reset all inputs
       $submitForm.slideToggle();
       $submitForm.trigger("reset");
